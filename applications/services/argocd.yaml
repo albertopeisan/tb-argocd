@@ -6,7 +6,7 @@ metadata:
 spec:
   project: argocd
   source:
-    repoURL: https://github.com/albertopeisan/argocd.git
+    repoURL: https://github.com/albertopeisan/tb-argocd
     path: manifests/argocd
     targetRevision: main
   destination:
