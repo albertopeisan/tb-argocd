@@ -10,11 +10,5 @@ spec:
     - namespace: argocd
       server: https://kubernetes.default.svc
   clusterResourceWhitelist:
-    - group: ''
-      kind: ConfigMap
-    - group: ''
-      kind: Secret
-    - group: 'argoproj.io'
-      kind: AppProject
-    - group: 'argoproj.io'
-      kind: Application
+    - group: *
+      kind: *
