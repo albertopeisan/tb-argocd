@@ -6,13 +6,13 @@ metadata:
 spec:
   project: clickhouse
   sources:
-    - repoURL: 'registry-1.docker.io/bitnamicharts'
+    - repoURL: registry-1.docker.io/bitnamicharts
       chart: clickhouse
       targetRevision: 8.0.0
       helm:
         valueFiles:
           - $values/charts/clickhouse/values.yaml
-    - repoURL: 'https://github.com/albertopeisan/tb-argocd.git'
+    - repoURL: https://github.com/albertopeisan/tb-argocd.git
       targetRevision: main
       ref: values
   destination:

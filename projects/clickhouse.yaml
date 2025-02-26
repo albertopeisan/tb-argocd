@@ -6,7 +6,7 @@ metadata:
 spec:
   sourceRepos:
     - 'https://github.com/albertopeisan/tb-argocd'
-    - 'https://registry-1.docker.io/bitnamicharts'
+    - 'registry-1.docker.io/bitnamicharts'
   destinations:
     - namespace: clickhouse
       server: 'https://kubernetes.default.svc'
