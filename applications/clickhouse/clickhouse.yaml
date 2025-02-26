@@ -19,9 +19,6 @@ spec:
     server: https://kubernetes.default.svc
     namespace: clickhouse
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
       - CreateNamespace=true
       - ApplyOutOfSyncOnly=true
