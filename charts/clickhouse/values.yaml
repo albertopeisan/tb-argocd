@@ -275,7 +275,7 @@ logLevel: information
 ## @param keeper.enabled Deploy ClickHouse keeper. Support is experimental.
 ##
 keeper:
-  enabled: false
+  enabled: true
 ## @param defaultConfigurationOverrides [string] Default configuration overrides (evaluated as a template)
 ##
 defaultConfigurationOverrides: |
