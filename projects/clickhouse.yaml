@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: clickhouse
+  namespace: argocd
+spec:
+  sourceRepos:
+    - 'https://github.com/albertopeisan/tb-argocd'
+    - 'https://registry-1.docker.io/bitnamicharts'
+  destinations:
+    - namespace: clickhouse
+      server: 'https://kubernetes.default.svc'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
