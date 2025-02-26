@@ -118,7 +118,7 @@ shards: 2
 ## @param replicaCount Number of ClickHouse replicas per shard to deploy
 ## if keeper enable, same as keeper count, keeper cluster by shards.
 ##
-replicaCount: 5
+replicaCount: 3
 ## @param distributeReplicasByZone Schedules replicas of the same shard to different availability zones
 ##
 distributeReplicasByZone: false
