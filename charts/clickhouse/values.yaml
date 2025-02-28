@@ -835,7 +835,7 @@ externalAccess:
 ingress:
   ## @param ingress.enabled Enable ingress record generation for ClickHouse
   ##
-  enabled: false
+  enabled: true
   ## @param ingress.pathType Ingress path type
   ##
   pathType: ImplementationSpecific
