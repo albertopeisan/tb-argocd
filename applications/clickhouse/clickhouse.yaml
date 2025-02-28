@@ -22,3 +22,10 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ApplyOutOfSyncOnly=true
+  ignoreDifferences:
+    - group: ""
+      kind: Secret
+      name: clickhouse
+      namespace: clickhouse
+      jsonPointers:
+        - /data/admin-password
