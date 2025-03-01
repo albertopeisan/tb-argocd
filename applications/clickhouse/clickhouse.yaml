@@ -23,7 +23,7 @@ spec:
       - CreateNamespace=true
       - ApplyOutOfSyncOnly=true
   ignoreDifferences:
-    - group: ""
+    - group: ''
       kind: Secret
       name: clickhouse
       namespace: clickhouse
