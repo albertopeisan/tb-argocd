@@ -1,20 +1,66 @@
-# ArgoCD configuration
+# Configuring ArgoCD
 
-This repository contains the applications for app-of-apps pattern to create ArgoCD applications and projects.
+This repository is designed to hold all the applications, projects, Helm charts, configurations, and other resources for managing your Kubernetes cluster. It serves as a centralized location for everything related to your Kubernetes environment.
 
-## Prepare the argocd Kubernetes namespace
+This repository uses the **app-of-apps pattern** to create ArgoCD applications and projects:
 
-```bash
-kubectl create namespace argocd
-kubectl apply -f ./manifests/argocd/install.yaml -n argocd
+- The `applications/argocd/applications.yaml` manifest creates all the applications inside the `applications` directory.
+
+- The`applications/argocd/projects.yaml` manifest creates all the projects inside the `projects` directory.
+
+## Table of Contents
+
+- [Repository Structure](#repository-structure)
+- [Configuring ArgoCD](#configuring-argocd)
+
+## Repository Structure
+
+The repository is organized into the following directories:
+
+```
+my-kubernetes-repo/
+├── applications/
+│   ├── app1/
+│   │   ├── deployment.yaml
+│   │   ├── service.yaml
+│   │   └── ...
+│   ├── app2/
+│   │   ├── deployment.yaml
+│   │   ├── service.yaml
+│   │   └── ...
+│   └── ...
+├── charts/
+│   ├── chart1/
+│   │   ├── Chart.yaml
+│   │   ├── values.yaml
+│   │   ├── templates/
+│   │   └── ...
+│   ├── chart2/
+│   │   ├── Chart.yaml
+│   │   ├── values.yaml
+│   │   ├── templates/
+│   │   └── ...
+│   └── ...
+├── docs/
+│   └── ...
+├── manifests/
+│   └── ...
+├── projects/
+│   └── ...
+└── README.md
 ```
 
-## Retrieve argocd credentials and forward traffic
+- **`applications/`**: Contains the ArgoCD Kubernetes manifests for each application.
+- **`charts/`**: Contains Helm charts for deploying applications.
+- **`docs/`**: Contains documentation about the repository.
+- **`manifests/`**: Contains yaml manifests to deploy applications.
+- **`projects/`**: Contains the ArgoCD Kubernetes manifests for each project.
 
-```bash
-kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
-kubectl port-forward svc/argocd-server -n argocd 8080:443
-```
+## Configuring ArgoCD
+
+### Pre-requisites
+
+- A kubernetes cluster running with ArgoCD installed.
 
 ## Create argocd project and app-of-apps pattern
 
