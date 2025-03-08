@@ -5,11 +5,11 @@ metadata:
   namespace: argocd
 spec:
   sourceRepos:
-    - 'https://github.com/albertopeisan/tb-argocd'
-    - 'https://altinity.github.io/kubernetes-blueprints-for-clickhouse'
+    - https://github.com/albertopeisan/tb-argocd
+    - registry-1.docker.io/bitnamicharts
   destinations:
-    - namespace: 'clickhouse'
-      server: 'https://kubernetes.default.svc'
+    - namespace: clickhouse
+      server: https://kubernetes.default.svc
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'

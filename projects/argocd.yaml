@@ -5,10 +5,10 @@ metadata:
   namespace: argocd
 spec:
   sourceRepos:
-    - 'https://github.com/albertopeisan/tb-argocd'
+    - https://github.com/albertopeisan/tb-argocd
   destinations:
-    - namespace: 'argocd'
-      server: 'https://kubernetes.default.svc'
+    - namespace: argocd
+      server: https://kubernetes.default.svc
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
