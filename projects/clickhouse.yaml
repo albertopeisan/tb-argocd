@@ -6,9 +6,9 @@ metadata:
 spec:
   sourceRepos:
     - 'https://github.com/albertopeisan/tb-argocd'
-    - 'registry-1.docker.io/bitnamicharts'
+    - 'https://altinity.github.io/kubernetes-blueprints-for-clickhouse'
   destinations:
-    - namespace: clickhouse
+    - namespace: 'clickhouse'
       server: 'https://kubernetes.default.svc'
   clusterResourceWhitelist:
     - group: '*'

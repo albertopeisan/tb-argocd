@@ -62,21 +62,23 @@ my-kubernetes-repo/
 
 - A kubernetes cluster running with ArgoCD installed.
 
-## Create argocd project and app-of-apps pattern
+## Create argocd repository and argocd project
 
-This project allows the argocd repository as a source and allows deploying AppProject and Application manifests to the argocd namespace.
+Create the `argocd` project that allows this repository as a source and `argocd` as destination namespace.
 
 ```bash
 kubectl apply -f ./projects/argocd.yaml
 ```
 
-Create the projects ArgoCD Application, this will sync the projects directory in the repository.
+Create the `projects` Application, this will sync the `projects` directory in the repository.
 
 ```bash
 kubectl apply -f ./applications/argocd/projects.yaml
 ```
 
-Create the applications ArgoCD Application, this will sync the applications directory in the repository.
+Go to ArgoCD UI and sync all the projects application manually before proceeding.
+
+Create the `applications` Application, this will sync the `applications` directory in the repository.
 
 ```bash
 kubectl apply -f ./applications/argocd/applications.yaml

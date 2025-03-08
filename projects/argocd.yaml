@@ -7,7 +7,7 @@ spec:
   sourceRepos:
     - 'https://github.com/albertopeisan/tb-argocd'
   destinations:
-    - namespace: argocd
+    - namespace: 'argocd'
       server: 'https://kubernetes.default.svc'
   clusterResourceWhitelist:
     - group: '*'
