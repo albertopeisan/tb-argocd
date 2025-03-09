@@ -12,6 +12,7 @@ spec:
       helm:
         valueFiles:
           - $values/charts/clickhouse/values.yaml
+          - $values/charts/clickhouse-zookeper/values.yaml
     - repoURL: https://github.com/albertopeisan/tb-argocd.git
       targetRevision: main
       ref: values
