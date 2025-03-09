@@ -4,29 +4,29 @@ metadata:
   name: clickhouse
   namespace: argocd
 spec:
+  destination:
+    namespace: clickhouse
+    server: https://kubernetes.default.svc
+  ignoreDifferences:
+    - group: ''
+      jsonPointers:
+        - /data/admin-password
+      kind: Secret
+      name: clickhouse
+      namespace: clickhouse
   project: clickhouse
   sources:
-    - repoURL: registry-1.docker.io/bitnamicharts
-      chart: clickhouse
-      targetRevision: 8.0.0
+    - chart: clickhouse
       helm:
         valueFiles:
           - $values/charts/clickhouse/values.yaml
           - $values/charts/clickhouse-zookeeper/values.yaml
-    - repoURL: https://github.com/albertopeisan/tb-argocd.git
+      repoURL: registry-1.docker.io/bitnamicharts
+      targetRevision: 8.0.0
+    - ref: values
+      repoURL: https://github.com/albertopeisan/tb-argocd.git
       targetRevision: main
-      ref: values
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: clickhouse
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
       - ApplyOutOfSyncOnly=true
-  ignoreDifferences:
-    - group: ''
-      kind: Secret
-      name: clickhouse
-      namespace: clickhouse
-      jsonPointers:
-        - /data/admin-password
