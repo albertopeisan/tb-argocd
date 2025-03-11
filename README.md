@@ -91,4 +91,18 @@ You can perform the following now:
 - Add new applications under the `applications` directory.
 - Add new projects under the `projects` directory.
 - Add new helm chart values used in applications in the `charts` directory.
-- Add new yaml manifests in the `manifests` directory. 
+- Add new yaml manifests in the `manifests` directory.
+
+## Port-forwarding
+
+To access ArgoCD and ClickHouse from your localhost, you need to set up port-forwarding using the following `kubectl` commands:
+
+```bash
+# Forward ArgoCD service to respective local port
+kubectl port-forward svc/argocd-server 8080:443 -n argocd
+
+# Forward ClickHouse services to respective local port
+kubectl port-forward svc/clickhouse 8123:8123 -n clickhouse
+```
+
+After running these commands, you can access ArgoCD at `https://localhost:8080` and ClickHouse interfaces via the specified local ports `https://localhost:8123` and ClickHouse interfaces via the specified local ports.
