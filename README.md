@@ -18,7 +18,7 @@ This repository uses the **app-of-apps pattern** to create ArgoCD applications a
 The repository is organized into the following directories:
 
 ```
-my-kubernetes-repo/
+tb-argocd/
 ├── applications/
 │   ├── app1/
 │   │   ├── deployment.yaml
@@ -100,7 +100,9 @@ To access ArgoCD and ClickHouse from your localhost, you need to set up port-for
 ```bash
 # Forward ArgoCD service to respective local port
 kubectl port-forward svc/argocd-server 8080:443 -n argocd
+```
 
+```bash
 # Forward ClickHouse services to respective local port
 kubectl port-forward svc/clickhouse 8123:8123 -n clickhouse
 ```
