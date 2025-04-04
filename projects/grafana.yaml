@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: grafana
+  namespace: argocd
+spec:
+  sourceRepos:
+    - https://github.com/albertopeisan/tb-argocd
+    - https://grafana.github.io/helm-charts
+  destinations:
+    - namespace: grafana
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
