@@ -112,4 +112,9 @@ kubectl port-forward svc/clickhouse 8123:8123 -n clickhouse
 kubectl port-forward svc/prometheus-server 9090:9090 -n prometheus
 ```
 
+```bash
+# Forward Grafana server service to respective local port
+kubectl port-forward svc/grafana 3000:3000 -n grafana
+```
+
 After running these commands, you can access the services at `https://localhost:<port>` via the specified local ports.
