@@ -692,6 +692,7 @@ server:
     runAsUser: 1000
     runAsGroup: 1000
     fsGroup: 2000
+    runAsNonRoot: false
 
   ## Security context to be added to server container
   ##
