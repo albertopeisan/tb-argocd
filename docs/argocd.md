@@ -1,5 +1,4 @@
-Use this command to forward traffic from localhost to argocd.
-
 ```bash
-kubectl port-forward svc/argocd-server -n argocd 8080:443
+# Forward ArgoCD service to respective local port
+kubectl port-forward svc/argocd-server 8080:443 -n argocd
 ```

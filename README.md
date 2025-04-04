@@ -95,7 +95,7 @@ You can perform the following now:
 
 ## Port-forwarding
 
-To access ArgoCD and ClickHouse from your localhost, you need to set up port-forwarding using the following `kubectl` commands:
+To access ArgoCD, ClickHouse and Prometheus from your localhost, you need to set up port-forwarding using the following `kubectl` commands:
 
 ```bash
 # Forward ArgoCD service to respective local port
@@ -103,8 +103,13 @@ kubectl port-forward svc/argocd-server 8080:443 -n argocd
 ```
 
 ```bash
-# Forward ClickHouse services to respective local port
+# Forward ClickHouse service to respective local port
 kubectl port-forward svc/clickhouse 8123:8123 -n clickhouse
 ```
 
-After running these commands, you can access ArgoCD at `https://localhost:8080` and ClickHouse interfaces via the specified local ports `https://localhost:8123` and ClickHouse interfaces via the specified local ports.
+```bash
+# Forward Prometheus server service to respective local port
+kubectl port-forward svc/prometheus-server 9090:9090 -n prometheus
+```
+
+After running these commands, you can access the services at `https://localhost:<port>` via the specified local ports.
