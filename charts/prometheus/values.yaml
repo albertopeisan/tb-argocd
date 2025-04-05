@@ -770,13 +770,13 @@ serverFiles:
       - name: Nodes
         rules:
           - alert: NodeDown
-            expr: node_down_count > 0
-            for: 5m
+            expr: up{job="kubernetes-nodes"} == 0
+            for: 1m
             labels:
               severity: critical
             annotations:
-              description: 'One or more Kubernetes nodes are down. This has been the case for more than 5 minutes.'
-              summary: 'Node(s) Down'
+              description: 'Kubernetes node {{ $labels.instance }} is down for more than 1 minute.'
+              summary: 'Node Down: {{ $labels.instance }}'
 
   ## Records configuration
   ## Ref: https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/
@@ -788,8 +788,6 @@ serverFiles:
             expr: 100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)
           - record: average_node_cpu_usage
             expr: avg(instance:node_cpu_utilisation:rate5m)
-          - record: node_down_count
-            expr: count(kubernetes_sd_endpoints{kubernetes_role="node"}) - sum(up{job="kubernetes-nodes"})
 
   prometheus.yml:
     rule_files:
