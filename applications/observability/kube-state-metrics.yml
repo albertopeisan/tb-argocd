@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kube-state-metrics
+  namespace: argocd
+spec:
+  destination:
+    namespace: prometheus
+    server: https://kubernetes.default.svc
+  project: prometheus
+  sources:
+    - chart: kube-state-metrics
+      helm:
+        valueFiles:
+          - $values/charts/kube-state-metrics/values.yaml
+      repoURL: https://prometheus-community.github.io/helm-charts
+      targetRevision: 5.31.1
+    - ref: values
+      repoURL: https://github.com/albertopeisan/tb-argocd.git
+      targetRevision: main
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true
