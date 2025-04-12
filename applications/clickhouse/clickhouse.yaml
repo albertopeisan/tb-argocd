@@ -8,8 +8,7 @@ spec:
     namespace: clickhouse
     server: https://kubernetes.default.svc
   ignoreDifferences:
-    - group: ''
-      jsonPointers:
+    - jsonPointers:
         - /data/admin-password
       kind: Secret
       name: clickhouse

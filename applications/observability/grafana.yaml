@@ -19,8 +19,7 @@ spec:
       repoURL: https://github.com/albertopeisan/tb-argocd.git
       targetRevision: main
   ignoreDifferences:
-    - group: ''
-      jsonPointers:
+    - jsonPointers:
         - /data/admin-password
       kind: Secret
       name: grafana
